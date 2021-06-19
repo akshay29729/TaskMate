@@ -14,27 +14,28 @@
     {% endblock title %}
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'index'%}"><img src = "{% static 'images/logos.png' %}" alt ="TaskMate"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-          <a class="nav-link" href="{% url 'index' %}">Home</a>
-          <a class="nav-link" href="{% url 'todolist' %}">Todolist</a>
-          <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
-          <a class="nav-link" href="{% url 'about' %}">About us</a>        
-      </div>
-    </div>
-    {% if user.is_authenticated %}
-      <div class = "form-inline my-2 my-lg-0">
-      <div class = "p-2 bg-dark text_white">Logged in as:{{user.username}}</div>
-      <a href = "{% url 'logout' %}"><button class ="btn btn-primary my-2 my-sm-2" type ="submit">Logout</button></a>
-    {% else %}
-      <a href = "{% url 'login' %}"><button class ="btn btn-success mr-5 my-2 my-sm-2" type ="submit">Login</button></a>
-      <a href = "{% url 'register' %}"><button class ="btn btn-primary my-2 my-sm-2" type ="submit">Register</button></a>
-    {% endif %}
-</nav>
+        <a class="navbar-brand" href="{% url 'index'%}"><img src = "{% static 'images/logos.png' %}" alt ="TaskMate"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+              <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'todolist' %}">Todolist</a>
+              <a class="nav-item nav-link" href="{% url 'contact' %}">Contact us</a>
+              <a class="nav-item nav-link" href="{% url 'about' %}">About us</a>        
+          </div>
+        </div>
+        {% if user.is_authenticated %}
+          <div class = "form-inline my-2 my-lg-0">
+            <div class = "p-2 bg-dark text-white">Logged as: {{ user.username }}</div>
+            <a href = "{% url 'logout' %}"><button class ="btn btn-primary my-2 my-sm-0" type ="submit">Logout</button></a>
+          </div>
+        {% else %}
+          <a href = "{% url 'login' %}"><button class ="btn btn-success mr-2 my-2 my-sm-0" type ="submit">Login</button></a>
+          <a href = "{% url 'register' %}"><button class ="btn btn-primary my-2 my-sm-0" type ="submit">Register</button></a>
+        {% endif %}
+    </nav>
   </head>
   <body class="bg-light">
     {% block content %}
