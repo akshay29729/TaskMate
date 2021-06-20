@@ -9,7 +9,7 @@
    <div class="container">
    </br>
    <h3>Welcome, please login...</h4>
-      {% if messages %}
+      {% comment %} {% if messages %}
           {% for message in messages%}
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                 {{message}}
@@ -17,7 +17,7 @@
                 </button>
             </div>
           {% endfor %}
-      {% endif %}
+      {% endif %} {% endcomment %}
 
      <form method="POST" class="mt-5 col-6">
         {% csrf_token %}

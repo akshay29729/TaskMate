@@ -1,6 +1,6 @@
 from django.core import paginator
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from todolist import form
 from todolist.models import Tasklist
 from todolist.form import TaskForm
@@ -75,19 +75,19 @@ def incomplete_task(request, task_id):
     return redirect('todolist')
 
 
+def index(request):
+    context = {
+        'index_text': "Welcome to index page",
+    }
+    return render(request, 'index.html', context)
+
+
 def contact(request):
     context = {
         'contact_text': "Welcome to Contact page",
         'Glad': "Glad you are here.."
     }
     return render(request, 'contact.html', context)
-
-
-def index(request):
-    context = {
-        'index_text': "Welcome to index page",
-    }
-    return render(request, 'index.html', context)
 
 
 def about(request):
